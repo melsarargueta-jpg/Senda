@@ -17,19 +17,6 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-subprojects {
-    plugins.withId("com.android.library") {
-        configure<com.android.build.api.dsl.LibraryExtension> {
-            compileSdk = 36
-        }
-    }
-    plugins.withId("com.android.application") {
-        configure<com.android.build.api.dsl.ApplicationExtension> {
-            compileSdk = 36
-        }
-    }
-}
-
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
