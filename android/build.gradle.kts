@@ -17,7 +17,6 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// Forzar versiones de AndroidX compatibles con SDK 31 para todos los subproyectos
 subprojects {
     configurations.all {
         resolutionStrategy {
@@ -34,5 +33,4 @@ subprojects {
 
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
-}android.suppressUnsupportedCompileSdk=34,35,36
-android.overridePathCheck=true
+}
