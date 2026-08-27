@@ -17,20 +17,16 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// Forzar compileSdk = 34 a nivel de cada subproyecto (librerías externas)
+// Forzar el SDK a 34 y desactivar el chequeo de metadata por nombre de tarea
 subprojects {
     afterEvaluate {
-        if (plugins.hasPlugin("com.android.library")) {
-            configure<com.android.build.api.dsl.LibraryExtension> {
-                compileSdk = 34
-            }
+        if (plugins.hasPlugin("com.android.library") || plugins.hasPlugin("com.android.application")) {
+            val android = extensions.findByName("android") as? com.android.build.gradle.BaseExtension
+            android?.compileSdkVersion(34)
         }
     }
-}
-
-// Opción de respaldo: Desactivar la validación estricta de AAR metadata en los subproyectos
-subprojects {
-    tasks.withType<com.android.build.gradle.tasks.CheckAarMetadata> {
+    
+    tasks.matching { it.name.contains("CheckAarMetadata") }.configureEach {
         enabled = false
     }
 }
