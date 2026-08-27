@@ -17,16 +17,13 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// Configuración directa de compileSdk y desactivación del check de AAR metadata
+// Forzar compileSdk a 34 utilizando la API de extensiones genéricas
 subprojects {
     plugins.withId("com.android.library") {
-        configure<com.android.build.api.dsl.LibraryExtension> {
-            compileSdk = 34
+        val android = extensions.findByName("android")
+        if (android is com.android.build.gradle.BaseExtension) {
+            android.compileSdkVersion(34)
         }
-    }
-    
-    tasks.matching { it.name.contains("CheckAarMetadata") }.configureEach {
-        enabled = false
     }
 }
 
