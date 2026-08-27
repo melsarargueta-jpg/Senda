@@ -18,9 +18,11 @@ subprojects {
 }
 
 subprojects {
-    plugins.withId("com.android.library") {
-        extensions.configure<com.android.build.api.dsl.LibraryExtension> {
-            compileSdk = 36
+    project.configurations.configureEach {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "androidx.core" && requested.name == "core-ktx") {
+                useVersion("1.12.0")
+            }
         }
     }
 }
