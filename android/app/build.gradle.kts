@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId = "com.example.senda"
         minSdk = flutter.minSdkVersion
-        targetSdk = 34
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
