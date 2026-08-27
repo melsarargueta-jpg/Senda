@@ -17,12 +17,11 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// Forzar compileSdk a 34 utilizando la API de extensiones genéricas
+// Sobrescribe el compileSdk de las librerías a versión 34
 subprojects {
     plugins.withId("com.android.library") {
-        val android = extensions.findByName("android")
-        if (android is com.android.build.gradle.BaseExtension) {
-            android.compileSdkVersion(34)
+        configure<com.android.build.api.dsl.LibraryExtension> {
+            compileSdk = 34
         }
     }
 }
