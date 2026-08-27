@@ -1,6 +1,7 @@
 name: senda
-description: "Senda - Aplicación de mapas y medición offline"
+description: "Proyecto Senda"
 publish_to: 'none'
+
 version: 1.0.0+1
 
 environment:
@@ -9,16 +10,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_map: ^7.0.2
-  flutter_map_tile_caching: ^9.0.0
-  latlong2: ^0.9.1
+  cupertino_icons: ^1.0.8
   geolocator: ^13.0.1
-  share_plus: ^10.0.2
+  share_plus: ^10.0.0
+  objectbox: ^4.0.0
+  objectbox_flutter_libs: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.11
+  objectbox_generator: ^4.0.0
 
 flutter:
   uses-material-design: true
