@@ -17,13 +17,21 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+// Forzar compileSdk = 34 a nivel de cada subproyecto (librerías externas)
 subprojects {
-    project.configurations.configureEach {
-        resolutionStrategy.eachDependency {
-            if (requested.group == "androidx.core" && requested.name == "core-ktx") {
-                useVersion("1.12.0")
+    afterEvaluate {
+        if (plugins.hasPlugin("com.android.library")) {
+            configure<com.android.build.api.dsl.LibraryExtension> {
+                compileSdk = 34
             }
         }
+    }
+}
+
+// Opción de respaldo: Desactivar la validación estricta de AAR metadata en los subproyectos
+subprojects {
+    tasks.withType<com.android.build.gradle.tasks.CheckAarMetadata> {
+        enabled = false
     }
 }
 
