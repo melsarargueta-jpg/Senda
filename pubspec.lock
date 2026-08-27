@@ -262,6 +262,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.2"
+  flutter_map_tile_caching:
+    dependency: "direct main"
+    description:
+      name: flutter_map_tile_caching
+      sha256: "19b35c39a1958c0613a165b5f93df36d3446b023cd6e781145d29d18d5367402"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.1.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
