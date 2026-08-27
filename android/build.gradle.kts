@@ -17,15 +17,22 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// Sobrescribe el compileSdk de las librerías a versión 34
+// Forzar versiones de AndroidX compatibles con SDK 31 para todos los subproyectos
 subprojects {
-    plugins.withId("com.android.library") {
-        configure<com.android.build.api.dsl.LibraryExtension> {
-            compileSdk = 34
+    configurations.all {
+        resolutionStrategy {
+            force("androidx.core:core:1.12.0")
+            force("androidx.core:core-ktx:1.12.0")
+            force("androidx.fragment:fragment:1.6.2")
+            force("androidx.activity:activity:1.8.0")
+            force("androidx.lifecycle:lifecycle-runtime:2.6.2")
+            force("androidx.lifecycle:lifecycle-livedata:2.6.2")
+            force("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
         }
     }
 }
 
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
-}
+}android.suppressUnsupportedCompileSdk=34,35,36
+android.overridePathCheck=true
