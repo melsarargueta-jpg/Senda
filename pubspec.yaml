@@ -1,30 +1,26 @@
-name: senda
-description: "Proyecto Senda"
+name: Senda
+description: "A new Flutter project."
 publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.4.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
-  geolocator: ^13.0.1
-  share_plus: ^10.0.0
-  objectbox: ^4.0.0
-  objectbox_flutter_libs: ^4.0.0
   flutter_map: ^7.0.2
-  flutter_map_tile_caching: ^9.0.0
-  latlong2: ^0.9.1
+  flutter_map_tile_caching: ^9.1.4
+  geolocator: ^13.0.4
+  objectbox: ^5.3.2
+  objectbox_flutter_libs: ^5.3.2
+  share_plus: ^10.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  build_runner: ^2.4.11
-  objectbox_generator: ^4.0.0
+  objectbox_generator: ^5.3.2
 
 flutter:
   uses-material-design: true
