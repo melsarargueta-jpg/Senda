@@ -18,9 +18,14 @@ subprojects {
 }
 
 subprojects {
-    afterEvaluate {
-        tasks.matching { it.name.contains("AarMetadata") }.configureEach {
-            enabled = false
+    plugins.withId("com.android.application") {
+        extensions.configure<com.android.build.gradle.BaseExtension> {
+            compileSdkVersion(36)
+        }
+    }
+    plugins.withId("com.android.library") {
+        extensions.configure<com.android.build.gradle.BaseExtension> {
+            compileSdkVersion(36)
         }
     }
 }
