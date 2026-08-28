@@ -18,15 +18,9 @@ subprojects {
 }
 
 subprojects {
-    configurations.all {
-        resolutionStrategy {
-            force("androidx.core:core:1.12.0")
-            force("androidx.core:core-ktx:1.12.0")
-            force("androidx.fragment:fragment:1.6.2")
-            force("androidx.activity:activity:1.8.0")
-            force("androidx.lifecycle:lifecycle-runtime:2.6.2")
-            force("androidx.lifecycle:lifecycle-livedata:2.6.2")
-            force("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+    afterEvaluate {
+        tasks.matching { it.name.contains("AarMetadata") }.configureEach {
+            enabled = false
         }
     }
 }
