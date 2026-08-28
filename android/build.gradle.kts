@@ -18,10 +18,8 @@ subprojects {
 }
 
 subprojects {
-    afterEvaluate {
-        tasks.matching { it.name.contains("AarMetadata") }.configureEach {
-            enabled = false
-        }
+    tasks.matching { it.name.contains("AarMetadata") }.configureEach {
+        enabled = false
     }
 }
 
